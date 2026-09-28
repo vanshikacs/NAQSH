@@ -100,7 +100,6 @@ Most blockchain or certificate projects verify digital records or paper invoices
 
 ### 1. Installation
 ```bash
-cd naqsh-app
 npm install
 ```
 
