@@ -44,7 +44,6 @@ export default function PhysicalSeal({
 
   return (
     <div className="card-naqsh p-6 relative overflow-hidden">
-      {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <Shield size={16} className="text-wine" aria-hidden="true" />
@@ -63,16 +62,14 @@ export default function PhysicalSeal({
         </span>
       </div>
 
-      {/* Woven Textile Label Representation */}
       <div
         className="mx-auto max-w-sm rounded-lg p-6 relative bg-[#FFFDF9] border-2 border-dashed border-[#D4B8B3] shadow-sm my-3 select-none"
         style={{
-          backgroundImage: `radial-gradient(#E8D7D2 0.75px, transparent 0.75px), radial-gradient(#E8D7D2 0.75px, #FFFDF9 0.75px)`,
+          backgroundImage: 'radial-gradient(#E8D7D2 0.75px, transparent 0.75px), radial-gradient(#E8D7D2 0.75px, #FFFDF9 0.75px)',
           backgroundSize: '16px 16px',
           backgroundPosition: '0 0, 8px 8px',
         }}
       >
-        {/* Top stitched thread motif */}
         <div className="flex justify-between items-center text-[10px] text-ink-muted border-b border-blush/80 pb-3 mb-4">
           <div className="flex items-center gap-1.5">
             <span className="font-serif font-bold text-wine tracking-wider text-sm">NAQSH</span>
@@ -81,7 +78,6 @@ export default function PhysicalSeal({
           <span className="font-mono text-[10px] text-ink-muted tracking-tight">{garmentId}</span>
         </div>
 
-        {/* QR Code and Meta Row */}
         <div className="flex items-center gap-4 bg-white/90 p-3 rounded border border-blush/60 backdrop-blur-xs">
           <div className="bg-white p-1.5 rounded border border-blush/40 flex-shrink-0 shadow-xs">
             <QRCode
@@ -105,14 +101,12 @@ export default function PhysicalSeal({
           </div>
         </div>
 
-        {/* Bottom micro-pattern & seal notice */}
         <div className="mt-4 pt-3 border-t border-blush/80 flex items-center justify-between text-[10px] font-mono text-ink-muted">
           <span>SECURE SERIAL #{sealId.split('-').pop()}</span>
           <span className="text-wine">SEAL BREAKS ON REMOVAL</span>
         </div>
       </div>
 
-      {/* Explanatory text */}
       <div className="mt-4 flex items-start gap-2 text-xs text-ink-muted font-body leading-relaxed bg-ivory rounded p-3">
         <Info size={14} className="text-wine flex-shrink-0 mt-0.5" aria-hidden="true" />
         <p style={{ fontSize: '11px' }}>
@@ -122,7 +116,6 @@ export default function PhysicalSeal({
         </p>
       </div>
 
-      {/* Actions */}
       <div className="mt-4 flex items-center justify-between gap-3 no-print">
         <button
           onClick={handleCopyLink}
