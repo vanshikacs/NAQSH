@@ -1,12 +1,12 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  typescript: {
-    // Avoid blocking production deployments on environment-specific type checks
-    ignoreBuildErrors: true,
-  },
   images: {
+    // Allow local public images
     remotePatterns: [],
+  },
+  experimental: {
+    // Opt in to better server component handling
   },
 };
 
