@@ -1,26 +1,253 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ─────────────────────────────────────────────
+   NAQSH Design System
+   Heritage × Modern Technology × Trust × Softness
+   ──────────────────────────────────────────── */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Palette */
+    --ivory: #FBF7F1;
+    --ivory-deep: #F5EFE6;
+    --mulmul: #FFFDF9;
+    --blush: #E8D7D2;
+    --blush-mid: #D4B8B3;
+    --rose: #C9797D;
+    --wine: #8E3F4A;
+    --burgundy: #5D2E35;
+    --sage: #A6AE91;
+    --gold: #B79A63;
+    --gold-light: #D4BC8A;
+    --ink: #1A1210;
+    --ink-soft: #3D2B2E;
+    --ink-muted: #6B5458;
+    --surface: #FFFDF9;
+    --border: #E8D7D2;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--ivory);
+    color: var(--ink);
+    font-family: var(--font-body, 'Inter', sans-serif);
+  }
+
+  /* Typography Scale */
+  h1, h2, h3 {
+    font-family: var(--font-serif, 'Cormorant Garamond', 'Georgia', serif);
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-body, 'Inter', sans-serif);
+    letter-spacing: 0.02em;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--blush);
+    color: var(--burgundy);
+  }
+
+  /* Focus visible */
+  :focus-visible {
+    outline: 2px solid var(--rose);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--ivory);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--blush-mid);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--rose);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─────────────────────────────────────────────
+   NAQSH Utilities
+   ──────────────────────────────────────────── */
+
+@layer utilities {
+  /* Text */
+  .text-ink { color: var(--ink); }
+  .text-ink-soft { color: var(--ink-soft); }
+  .text-ink-muted { color: var(--ink-muted); }
+  .text-wine { color: var(--wine); }
+  .text-burgundy { color: var(--burgundy); }
+  .text-rose { color: var(--rose); }
+  .text-gold { color: var(--gold); }
+  .text-sage { color: var(--sage); }
+
+  /* Backgrounds */
+  .bg-ivory { background-color: var(--ivory); }
+  .bg-ivory-deep { background-color: var(--ivory-deep); }
+  .bg-mulmul { background-color: var(--mulmul); }
+  .bg-blush { background-color: var(--blush); }
+  .bg-wine { background-color: var(--wine); }
+  .bg-burgundy { background-color: var(--burgundy); }
+
+  /* Borders */
+  .border-blush { border-color: var(--blush); }
+  .border-rose { border-color: var(--rose); }
+  .border-wine { border-color: var(--wine); }
+  .border-gold { border-color: var(--gold); }
+
+  /* Font families */
+  .font-serif { font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif); }
+  .font-body { font-family: var(--font-body, 'Inter', sans-serif); }
+
+  /* Stitch divider */
+  .stitch-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--blush-mid);
+  }
+
+  .stitch-divider::before,
+  .stitch-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: repeating-linear-gradient(
+      to right,
+      var(--blush-mid) 0px,
+      var(--blush-mid) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  }
+
+  /* Fabric texture overlay */
+  .fabric-texture {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9797d' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Status badges */
+  .badge-verified {
+    background: #f0f9f0;
+    color: #2d6a2d;
+    border: 1px solid #b8d8b8;
+  }
+
+  .badge-review {
+    background: #fef9ec;
+    color: #8a6b00;
+    border: 1px solid #e8d488;
+  }
+
+  .badge-inconsistent {
+    background: #fdf0f0;
+    color: #8a2c2c;
+    border: 1px solid #e8b8b8;
+  }
+
+  .badge-duplicate {
+    background: #fdf4ec;
+    color: #8a4a00;
+    border: 1px solid #e8c888;
+  }
+
+  /* Card elevation */
+  .card-naqsh {
+    background: var(--mulmul);
+    border: 1px solid var(--blush);
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(93, 46, 53, 0.06);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card-naqsh:hover {
+    box-shadow: 0 4px 16px rgba(93, 46, 53, 0.10);
+    border-color: var(--blush-mid);
+  }
+
+  /* Scan animation */
+  @keyframes scan-line {
+    0% { top: 0%; opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+
+  .scan-line {
+    animation: scan-line 2.4s ease-in-out infinite;
+  }
+
+  /* Thread line animation */
+  @keyframes thread-draw {
+    from { stroke-dashoffset: 1000; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  .thread-draw {
+    stroke-dasharray: 1000;
+    animation: thread-draw 2s ease-in-out forwards;
+  }
+
+  /* Pulse glow */
+  @keyframes naqsh-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .naqsh-pulse {
+    animation: naqsh-pulse 2s ease-in-out infinite;
+  }
+
+  /* Fade in */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    animation: fade-up 0.5s ease forwards;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .scan-line, .thread-draw, .naqsh-pulse, .fade-up {
+      animation: none;
+    }
+    * {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ─────────────────────────────────────────────
+   Print styles
+   ──────────────────────────────────────────── */
+
+@media print {
+  .no-print { display: none; }
+  body { background: white; color: black; }
 }
