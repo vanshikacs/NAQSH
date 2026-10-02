@@ -41,9 +41,6 @@ export default function Navbar() {
             <span className="text-[9px] font-mono tracking-[0.16em] uppercase text-ink-muted leading-tight font-semibold">
               Har Dhaage Ki Kahani
             </span>
-            <span className="text-[9px] font-urdu text-olive/80 leading-tight" dir="rtl">
-              ہر دھاگے کی کہانی
-            </span>
           </div>
         </Link>
 
@@ -58,7 +55,6 @@ export default function Navbar() {
             href="/search"
             className="p-1.5 text-ink-muted hover:text-burgundy transition-colors rounded-full hover:bg-blush/40"
             aria-label="Search Registry"
-            title="Search crafts, artisans, and techniques"
           >
             <Search size={16} />
           </Link>
@@ -67,16 +63,16 @@ export default function Navbar() {
               const e = new CustomEvent("open-guided-demo");
               window.dispatchEvent(e);
             }}
-            className="ml-1 px-4 py-2 bg-burgundy text-white text-xs font-semibold rounded-full hover:bg-wine transition-all flex items-center gap-1.5 shadow-sm hover:shadow-md"
+            className="px-3.5 py-1.5 bg-burgundy hover:bg-wine text-white text-xs font-semibold rounded-full flex items-center gap-1.5 transition-all shadow-xs"
           >
-            <Play size={11} fill="currentColor" /> Live Demo
+            <Play size={11} fill="currentColor" /> Tour
           </button>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile menu button */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 text-ink-soft hover:text-burgundy transition-colors rounded-lg"
+          className="md:hidden p-2 text-ink-muted hover:text-burgundy"
           aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -87,7 +83,10 @@ export default function Navbar() {
       {open && (
         <div className="md:hidden bg-ivory border-t border-blush px-5 py-5 flex flex-col gap-3.5 shadow-xl">
           <div className="flex items-center justify-between pb-2 border-b border-blush/60">
-            <span className="font-urdu text-lg text-wine" dir="rtl">نقش — ہر دھاگے کی کہانی</span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-serif text-lg font-bold text-burgundy">NAQSH</span>
+              <span className="font-urdu text-lg text-wine" dir="rtl">نقش</span>
+            </div>
             <span className="text-[10px] font-mono uppercase tracking-widest text-olive font-bold">Menu</span>
           </div>
           <MobileNavLink href="/scan" onClick={() => setOpen(false)}>Verify a Piece</MobileNavLink>

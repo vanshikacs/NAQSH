@@ -93,9 +93,7 @@ export default async function VerifyPage({
               <span className="font-serif text-3xl sm:text-4xl text-burgundy font-semibold">NAQSH</span>
               <span className="font-urdu text-2xl sm:text-3xl text-wine font-medium" dir="rtl">نقش</span>
             </div>
-            <p className="text-xs font-serif italic text-wine mb-1">
-              "Har Dhaage Ki Kahani" · <span className="font-urdu not-italic text-xs text-ink-muted" dir="rtl">ہر دھاگے کی کہانی</span>
-            </p>
+            <p className="text-xs font-serif italic text-wine mb-1">"Har Dhaage Ki Kahani"</p>
             <p
               className="text-xs font-body text-ink-muted tracking-widest uppercase font-mono"
               style={{ fontSize: '9px', letterSpacing: '0.16em' }}

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ARTISANS } from '@/lib/data/seedData';
-import { MapPin, Clock, Award, Sparkles } from 'lucide-react';
+import { MapPin, Clock, Award } from 'lucide-react';
 
 export default function ArtisansPage() {
   return (
@@ -15,16 +15,15 @@ export default function ArtisansPage() {
 
           {/* Header */}
           <div className="text-center mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blush/60 border border-burgundy/15 mb-4 shadow-sm">
-              <span className="font-urdu text-base text-burgundy font-medium">دستکار و کاریگر</span>
-              <span className="text-xs font-body text-ink-muted uppercase tracking-widest">• Master Makers</span>
-            </div>
-            <h1 className="font-serif text-4xl sm:text-5xl text-ink mb-3">
-              Meet the Artisans <span className="font-urdu text-3xl text-rose font-normal ml-1">دستکار</span>
-            </h1>
-            <p className="font-urdu text-base text-burgundy/80 mb-2">
-              ہر دھاگے کی پشت پر ایک فنکار کا نام اور صدیوں پرانی روایت
+            <p
+              className="text-xs font-body font-medium tracking-widest uppercase text-rose mb-3"
+              style={{ fontSize: '10px', letterSpacing: '0.18em' }}
+            >
+              The Makers
             </p>
+            <h1 className="font-serif text-4xl sm:text-5xl text-ink mb-3">
+              Meet the Artisans
+            </h1>
             <p className="font-body text-sm text-ink-muted max-w-lg mx-auto">
               The hands behind the craft. Every NAQSH-registered artisan has consented to share their story, lineage, and transparent earnings.
             </p>
@@ -52,10 +51,7 @@ export default function ArtisansPage() {
 
                   {/* Name overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-5">
-                    <div className="flex items-center justify-between mb-0.5">
-                      <p className="font-serif text-xl text-white font-medium">{artisan.name}</p>
-                      <span className="font-urdu text-xs text-white/80 bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full">دستکار</span>
-                    </div>
+                    <p className="font-serif text-xl text-white font-medium mb-0.5">{artisan.name}</p>
                     <div className="flex items-center gap-1 text-white/80">
                       <MapPin size={11} aria-hidden="true" />
                       <p className="text-xs font-body">{artisan.location}</p>
@@ -112,7 +108,7 @@ export default function ArtisansPage() {
               </p>
             </div>
             <h2 className="font-serif text-2xl text-ink mb-2">
-              Chowk & Aminabad Artisan Cooperatives <span className="font-urdu text-xl text-rose ml-1">انجمن دستکاران</span>
+              Chowk & Aminabad Artisan Cooperatives
             </h2>
             <p className="text-sm font-body text-ink-muted max-w-lg mx-auto leading-relaxed">
               Artisan registration is cooperative-assisted. Cooperatives verify identities,

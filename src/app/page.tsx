@@ -107,19 +107,13 @@ export default function HomePage() {
           <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-8">
             <div className="max-w-[580px]">
               {/* Urdu Brand Header */}
-              <div className="flex items-center gap-3.5 mb-5 bg-white/60 backdrop-blur-sm border border-wine/20 w-fit px-4 py-2 rounded-full shadow-xs">
-                <span className="font-urdu text-2xl sm:text-3xl text-wine font-normal leading-none" dir="rtl">
-                  نقش
+              <div className="flex items-baseline gap-2 mb-5 bg-white/60 backdrop-blur-sm border border-wine/20 w-fit px-3.5 py-1.5 rounded-full shadow-xs">
+                <span className="font-serif text-lg font-bold text-burgundy">NAQSH</span>
+                <span className="font-urdu text-xl sm:text-2xl text-wine font-normal leading-none" dir="rtl">نقش</span>
+                <span className="h-3.5 w-px bg-wine/25 mx-1" />
+                <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-ink-muted font-semibold leading-tight">
+                  Har Dhaage Ki Kahani
                 </span>
-                <span className="h-4 w-px bg-wine/30" />
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-wine font-bold leading-tight">
-                    Har Dhaage Ki Kahani
-                  </span>
-                  <span className="font-urdu text-[11px] text-olive leading-tight" dir="rtl">
-                    ہر دھاگے کی کہانی
-                  </span>
-                </div>
               </div>
 
               <h1 className="font-serif text-[clamp(3.8rem,11vw,8.5rem)] leading-[.85] tracking-[-.03em] text-ink">
@@ -216,21 +210,18 @@ export default function HomePage() {
               <CraftCard
                 image="/images/chikankari-ivory-pink.jpg"
                 title="Chikankari"
-                subHindi="لکھنؤ چکن کاری"
                 place="Lucknow, Uttar Pradesh (GI-119)"
                 copy="400-year-old delicate shadow-work and needle-drawn jali trellis on pure muslin."
               />
               <CraftCard
                 image="/images/chikankari-peach-suit.jpg"
                 title="Banarasi Kadhwa"
-                subHindi="بنارسی کڑھوا"
                 place="Varanasi, Uttar Pradesh (GI-99)"
                 copy="Discontinuous weft handloom brocade on pit-looms using tested pure silver zari."
               />
               <CraftCard
                 image="/images/chikankari-outfit.jpg"
                 title="Amina Begum"
-                subHindi="امینہ بیگم"
                 place="Master Artisan · Chowk, Awadh"
                 copy="34 years of needle practice, 86% cooperative wage share, 420 authenticated pieces."
               />
@@ -394,7 +385,7 @@ export default function HomePage() {
                   <dt className="text-ink-muted font-mono text-xs uppercase">Craft Tradition</dt>
                   <dd className="font-semibold">Lucknow Chikankari (GI-119)</dd>
                   <dt className="text-ink-muted font-mono text-xs uppercase">Master Artisan</dt>
-                  <dd className="font-semibold">Amina Begum (امینہ بیگم) · Awadh Guild</dd>
+                  <dd className="font-semibold">Amina Begum · Awadh Guild</dd>
                   <dt className="text-ink-muted font-mono text-xs uppercase">Evidence Confidence</dt>
                   <dd className="font-semibold text-emerald-800">89% Composite · Hand Embroidery Verified</dd>
                   <dt className="text-ink-muted font-mono text-xs uppercase">Fair Earnings Share</dt>
@@ -477,13 +468,11 @@ export default function HomePage() {
 function CraftCard({
   image,
   title,
-  subHindi,
   place,
   copy
 }: {
   image: string;
   title: string;
-  subHindi?: string;
   place: string;
   copy: string;
 }) {
@@ -501,11 +490,7 @@ function CraftCard({
         <div className="absolute bottom-5 left-5 right-5 text-ivory">
           <div className="flex items-baseline justify-between mb-1">
             <h3 className="font-serif text-3xl italic">{title}</h3>
-            {subHindi && (
-              <span className="font-urdu text-lg text-ivory/80" dir="rtl">
-                {subHindi}
-              </span>
-            )}
+            
           </div>
           <p className="text-xs tracking-wide text-ivory/75 font-mono">{place}</p>
           <p className="mt-2 text-xs leading-relaxed text-ivory/85">{copy}</p>

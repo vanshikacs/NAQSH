@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ExternalLink, MessageSquare, ShieldCheck, PenTool, Sparkles } from 'lucide-react';
+import { ExternalLink, MessageSquare, ShieldCheck, PenTool } from 'lucide-react';
 
 const VAKH_FORM_URL =
   process.env.NEXT_PUBLIC_VAKH_FIELD_NOTE_FORM_URL ||
@@ -79,17 +79,13 @@ export default function CommunityPage() {
       <main className="pt-24 pb-20">
         <div className="wrap">
           <div className="max-w-3xl mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blush/60 border border-burgundy/15 mb-4 shadow-sm">
-              <span className="font-urdu text-base text-burgundy font-medium">نقش انجمن</span>
-              <span className="text-xs font-body text-ink-muted uppercase tracking-widest">• Community & Field Notes</span>
-            </div>
+            <span className="inline-block text-xs uppercase tracking-widest font-semibold text-olive border border-olive/30 px-3 py-1 rounded-full mb-4 bg-white/50">
+              Community · Powered by Vakh
+            </span>
             
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight mb-3">
               Field notes from the <em className="text-wine italic">people in the field.</em>
             </h1>
-            <p className="font-urdu text-lg text-burgundy/80 mb-3">
-              ہر مشاہدہ اور ہر رائے سچائی کی تائید کرتی ہے
-            </p>
             <p className="text-ink-muted text-base leading-relaxed mb-6">
               Buyers, researchers, journalists and cooperative reviewers submit direct observations through the Vakh protocol.
               Each observation is structured, timestamped and linked to artisan provenance.
@@ -110,21 +106,21 @@ export default function CommunityPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-sage/40 border border-sage/60 rounded-2xl p-7 mb-12 shadow-sm">
             <div>
               <p className="font-serif text-3xl text-wine/60 mb-1">01</p>
-              <h3 className="font-serif text-lg font-semibold text-ink mb-1">Submit via Vakh <span className="font-urdu text-sm text-wine font-normal">اندراج</span></h3>
+              <h3 className="font-serif text-lg font-semibold text-ink mb-1">Submit via Vakh</h3>
               <p className="text-xs text-olive leading-relaxed">
                 Anyone can submit field observations, stitch notes, or artisan updates through the official Vakh form (8msr).
               </p>
             </div>
             <div>
               <p className="font-serif text-3xl text-wine/60 mb-1">02</p>
-              <h3 className="font-serif text-lg font-semibold text-ink mb-1">Structured Ledger <span className="font-urdu text-sm text-wine font-normal">تشکیل</span></h3>
+              <h3 className="font-serif text-lg font-semibold text-ink mb-1">Structured Ledger</h3>
               <p className="text-xs text-olive leading-relaxed">
                 Vakh verifies the post with author credentials, craft tags, and tamper-evident history.
               </p>
             </div>
             <div>
               <p className="font-serif text-3xl text-wine/60 mb-1">03</p>
-              <h3 className="font-serif text-lg font-semibold text-ink mb-1">Live Provenance <span className="font-urdu text-sm text-wine font-normal">صداقت</span></h3>
+              <h3 className="font-serif text-lg font-semibold text-ink mb-1">Live Provenance</h3>
               <p className="text-xs text-olive leading-relaxed">
                 Field evidence connects directly into provenance timelines for buyers, cooperatives, and curators.
               </p>

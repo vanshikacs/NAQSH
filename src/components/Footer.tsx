@@ -12,7 +12,7 @@ export default function Footer() {
               <span className="font-urdu text-2xl text-wine font-medium" dir="rtl">نقش</span>
             </div>
             <p className="font-serif italic text-wine text-base mb-2">
-              "Har Dhaage Ki Kahani" · <span className="font-urdu not-italic text-sm text-ink-muted" dir="rtl">ہر دھاگے کی کہانی</span>
+              "Har Dhaage Ki Kahani"
             </p>
             <p className="text-xs text-ink-muted leading-relaxed font-body">
               A provenance and trust protocol for Indian heritage textiles and crafts. AI-assisted stitch forensics, verified artisan lineages, and cooperative earnings transparency.

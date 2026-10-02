@@ -1,7 +1,7 @@
 ﻿import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Eye, BookOpen, Shield, ChevronRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Eye, BookOpen, Shield, ChevronRight, Sparkles } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -13,16 +13,15 @@ export default function AboutPage() {
 
           {/* Hero */}
           <div className="text-center py-12 border-b border-blush/60 mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blush/60 border border-burgundy/15 mb-4 shadow-sm">
-              <span className="font-urdu text-base text-burgundy font-medium">نقش</span>
-              <span className="text-xs font-body text-ink-muted uppercase tracking-widest">• About NAQSH</span>
-            </div>
+            <p
+              className="text-xs font-body font-medium tracking-widest uppercase text-rose mb-3"
+              style={{ fontSize: '10px', letterSpacing: '0.18em' }}
+            >
+              About
+            </p>
             <h1 className="font-serif text-5xl sm:text-6xl text-ink mb-3">
               NAQSH <span className="font-urdu text-4xl text-rose font-normal ml-2">نقش</span>
             </h1>
-            <p className="font-urdu text-lg sm:text-xl text-burgundy mb-3">
-              ہر دھاگے کی کہانی — ہر نقش میں صداقت
-            </p>
             <p className="font-serif text-xl text-ink-soft italic mb-4">
               AI verifies the hand. We preserve the story.
             </p>
@@ -38,7 +37,7 @@ export default function AboutPage() {
               className="text-xs font-body font-medium tracking-widest uppercase text-rose mb-3"
               style={{ fontSize: '10px', letterSpacing: '0.18em' }}
             >
-              Why Vision? · بصری تصدیق
+              Why Vision?
             </p>
             <h2 className="font-serif text-3xl text-ink mb-4">
               AI-assisted visual assessment
@@ -89,7 +88,7 @@ export default function AboutPage() {
               className="text-xs font-body font-medium tracking-widest uppercase text-rose mb-3"
               style={{ fontSize: '10px', letterSpacing: '0.18em' }}
             >
-              Why a Ledger? · غیر متبدل ریکارڈ
+              Why a Ledger?
             </p>
             <h2 className="font-serif text-3xl text-ink mb-4">
               Tamper-evident provenance
@@ -141,7 +140,7 @@ export default function AboutPage() {
               className="text-xs font-body font-medium tracking-widest uppercase text-rose mb-3"
               style={{ fontSize: '10px', letterSpacing: '0.18em' }}
             >
-              Architecture · تین ستون
+              Architecture
             </p>
             <h2 className="font-serif text-3xl text-ink mb-2">Three Layers of Trust</h2>
             <p className="text-sm font-body text-ink-muted mb-6">Each layer solves a distinct integrity challenge.</p>
@@ -149,15 +148,15 @@ export default function AboutPage() {
             <div className="space-y-4">
               {[
                 {
-                  n: '01', title: 'The Hand (دستکاری)', color: 'var(--rose)',
+                  n: '01', title: 'The Hand', color: 'var(--rose)',
                   body: 'AI examines the reverse-side stitch structure of the embroidery — thread tension variation, stitch irregularity, and float patterns characteristic of hand work. This is the physical evidence that cannot be forged.',
                 },
                 {
-                  n: '02', title: 'The Seal (مہر و شناخت)', color: 'var(--gold)',
+                  n: '02', title: 'The Seal', color: 'var(--gold)',
                   body: 'A tamper-evident physical identifier binds the garment to its digital passport. This creates a link that simple QR code reproduction cannot fake.',
                 },
                 {
-                  n: '03', title: 'The Record (دستاویز و ریکارڈ)', color: 'var(--sage)',
+                  n: '03', title: 'The Record', color: 'var(--sage)',
                   body: 'The registration record is committed to a tamper-evident audit ledger with Vakh field observations, ensuring that provenance cannot be rewritten after creation.',
                 },
               ].map(({ n, title, color, body }) => (
