@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ExternalLink, MessageSquare, ShieldCheck, PenTool, Sparkles } from 'lucide-react';
 
 const VAKH_FORM_URL =
   process.env.NEXT_PUBLIC_VAKH_FIELD_NOTE_FORM_URL ||
@@ -17,7 +18,7 @@ const FIELD_NOTES = [
     role: 'Textile researcher, Delhi',
     date: 'Sep 28, 2026',
     location: 'Chowk Bazaar, Lucknow',
-    craft: 'Chikankari',
+    craft: 'Chikankari (Jali Motif)',
     note: 'Watched Amina ji complete a full jali motif in under an hour — the thread tension on the reverse side is unmistakeable once you know what to look for. NAQSH scan confirmed: genuine.',
     verdict: 'genuine',
     image: '/images/chikankari-sage-flatlay.jpg',
@@ -39,7 +40,7 @@ const FIELD_NOTES = [
     role: 'Cooperative reviewer, Lucknow',
     date: 'Sep 30, 2026',
     location: 'Nakkhas, Lucknow',
-    craft: 'Chikankari',
+    craft: 'Chikankari (Shadow Work)',
     note: 'Three new artisans submitted their first pieces through NAQSH this week. All three records are now live on the board — buyers can trace each piece back to its maker.',
     verdict: 'registered',
     image: '/images/chikankari-green.jpg',
@@ -50,7 +51,7 @@ const FIELD_NOTES = [
     role: 'Fashion journalist',
     date: 'Sep 25, 2026',
     location: 'Hazratganj, Lucknow',
-    craft: 'Chikankari',
+    craft: 'Chikankari (Murri Stitch)',
     note: 'Covering a heritage craft fair — every verified stall had NAQSH QR codes. Scanned six pieces, all verified. One seller could not produce a NAQSH ID at all, which told its own story.',
     verdict: 'genuine',
     image: '/images/chikankari-peach-suit.jpg',
@@ -58,9 +59,9 @@ const FIELD_NOTES = [
 ];
 
 const VERDICT_STYLES: Record<string, { label: string; color: string; bg: string }> = {
-  genuine: { label: '✓ Verified genuine', color: '#3F7A5A', bg: '#DCE8D2' },
-  flagged: { label: '⚠ Flagged inconsistent', color: '#8E3B55', bg: '#F3D9D2' },
-  registered: { label: '+ Newly registered', color: '#4C5B47', bg: '#DCE8D2' },
+  genuine: { label: '✓ Verified Genuine', color: '#2E6649', bg: '#E2F0E5' },
+  flagged: { label: '⚠ Flagged Inconsistent', color: '#8E3F4A', bg: '#FDEEEF' },
+  registered: { label: '+ Newly Registered', color: '#4C5B47', bg: '#EBF0E6' },
 };
 
 export default function CommunityPage() {
@@ -75,50 +76,57 @@ export default function CommunityPage() {
     <div className="min-h-screen bg-ivory text-ink">
       <Navbar />
 
-      <main className="pt-28 pb-20">
+      <main className="pt-24 pb-20">
         <div className="wrap">
-          <div className="max-w-2xl mb-14">
-            <span className="inline-block text-xs uppercase tracking-widest font-semibold text-olive border border-olive px-3 py-1 rounded-full mb-5">
-              Community · Powered by Vakh
-            </span>
-            <h1 className="font-serif text-5xl sm:text-6xl font-normal leading-tight mb-5">
+          <div className="max-w-3xl mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blush/60 border border-burgundy/15 mb-4 shadow-sm">
+              <span className="font-urdu text-base text-burgundy font-medium">نقش انجمن</span>
+              <span className="text-xs font-body text-ink-muted uppercase tracking-widest">• Community & Field Notes</span>
+            </div>
+            
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight mb-3">
               Field notes from the <em className="text-wine italic">people in the field.</em>
             </h1>
+            <p className="font-urdu text-lg text-burgundy/80 mb-3">
+              ہر مشاہدہ اور ہر رائے سچائی کی تائید کرتی ہے
+            </p>
             <p className="text-ink-muted text-base leading-relaxed mb-6">
-              Buyers, researchers, journalists and cooperative reviewers submit their observations through Vakh.
-              Each note is structured, timestamped and linked to the garment record it describes.
+              Buyers, researchers, journalists and cooperative reviewers submit direct observations through the Vakh protocol.
+              Each observation is structured, timestamped and linked to artisan provenance.
             </p>
 
             <a
               href={VAKH_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-burgundy text-white font-semibold text-sm rounded-full hover:bg-wine transition-all shadow-md"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-burgundy text-white font-medium text-sm rounded-full hover:bg-wine transition-all shadow-md group"
             >
-              Open Form on Vakh ↗
+              <PenTool size={15} />
+              Submit Field Note on Vakh
+              <ExternalLink size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-sage/60 rounded-2xl p-8 mb-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-sage/40 border border-sage/60 rounded-2xl p-7 mb-12 shadow-sm">
             <div>
-              <p className="font-serif text-4xl text-wine opacity-50 mb-2">01</p>
-              <h3 className="font-serif text-xl italic font-semibold mb-2">Submit via Vakh</h3>
+              <p className="font-serif text-3xl text-wine/60 mb-1">01</p>
+              <h3 className="font-serif text-lg font-semibold text-ink mb-1">Submit via Vakh <span className="font-urdu text-sm text-wine font-normal">اندراج</span></h3>
               <p className="text-xs text-olive leading-relaxed">
-                Anyone can submit observations or artisan updates through the official Vakh form.
+                Anyone can submit field observations, stitch notes, or artisan updates through the official Vakh form (8msr).
               </p>
             </div>
             <div>
-              <p className="font-serif text-4xl text-wine opacity-50 mb-2">02</p>
-              <h3 className="font-serif text-xl italic font-semibold mb-2">Vakh Structures It</h3>
+              <p className="font-serif text-3xl text-wine/60 mb-1">02</p>
+              <h3 className="font-serif text-lg font-semibold text-ink mb-1">Structured Ledger <span className="font-urdu text-sm text-wine font-normal">تشکیل</span></h3>
               <p className="text-xs text-olive leading-relaxed">
-                Vakh formats the post with author credentials, craft tags, and tamper-evident history.
+                Vakh verifies the post with author credentials, craft tags, and tamper-evident history.
               </p>
             </div>
             <div>
-              <p className="font-serif text-4xl text-wine opacity-50 mb-2">03</p>
-              <h3 className="font-serif text-xl italic font-semibold mb-2">NAQSH Displays It</h3>
+              <p className="font-serif text-3xl text-wine/60 mb-1">03</p>
+              <h3 className="font-serif text-lg font-semibold text-ink mb-1">Live Provenance <span className="font-urdu text-sm text-wine font-normal">صداقت</span></h3>
               <p className="text-xs text-olive leading-relaxed">
-                Live field evidence connects directly into provenance timelines for buyers and judges.
+                Field evidence connects directly into provenance timelines for buyers, cooperatives, and curators.
               </p>
             </div>
           </div>
@@ -129,13 +137,13 @@ export default function CommunityPage() {
                 <button
                   key={f}
                   onClick={() => setActiveFilter(f)}
-                  className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                  className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
                     activeFilter === f
-                      ? 'bg-burgundy text-white'
-                      : 'border border-wine/30 text-wine hover:bg-wine/10'
+                      ? 'bg-burgundy text-white shadow-sm'
+                      : 'border border-wine/25 text-wine hover:bg-wine/10 bg-white/50'
                   }`}
                 >
-                  {f === 'all' ? 'All notes' : f.charAt(0).toUpperCase() + f.slice(1)}
+                  {f === 'all' ? 'All Notes' : f.charAt(0).toUpperCase() + f.slice(1)}
                 </button>
               ))}
             </div>
@@ -144,23 +152,27 @@ export default function CommunityPage() {
               href={VAKH_FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-semibold text-wine hover:text-burgundy flex items-center gap-1"
+              className="text-xs font-semibold text-wine hover:text-burgundy flex items-center gap-1.5 group"
             >
-              + Submit a note directly on Vakh ↗
+              <span>+ Open Vakh Form directly</span>
+              <ExternalLink size={12} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
             {filtered.map((note) => {
               const vs = VERDICT_STYLES[note.verdict];
               return (
                 <article
                   key={note.id}
-                  className="bg-ivory border border-wine/15 rounded-2xl overflow-hidden shadow-sm flex flex-col hover:-translate-y-1 transition-transform"
+                  className="bg-white/80 border border-burgundy/15 rounded-2xl overflow-hidden shadow-sm flex flex-col hover:-translate-y-1 hover:shadow-md transition-all duration-300"
                 >
                   <div className="relative h-48 w-full bg-blush">
                     <Image src={note.image} alt={note.craft} fill className="object-cover" />
-                    <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: vs.bg, color: vs.color }}>
+                    <div
+                      className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold shadow-sm"
+                      style={{ backgroundColor: vs.bg, color: vs.color }}
+                    >
                       {vs.label}
                     </div>
                   </div>
@@ -168,22 +180,22 @@ export default function CommunityPage() {
                   <div className="p-6 flex-1 flex flex-col justify-between">
                     <div>
                       <div className="flex justify-between items-baseline mb-2">
-                        <h4 className="font-semibold text-ink text-sm">{note.author}</h4>
+                        <h4 className="font-serif font-semibold text-ink text-base">{note.author}</h4>
                         <span className="text-xs text-ink-muted">{note.date}</span>
                       </div>
-                      <p className="text-xs text-olive mb-3">{note.role} · {note.location}</p>
+                      <p className="text-xs text-olive font-medium mb-3">{note.role} · {note.location}</p>
                       <p className="text-sm text-ink leading-relaxed">&ldquo;{note.note}&rdquo;</p>
                     </div>
 
                     <div className="mt-5 pt-3 border-t border-blush/60 flex justify-between items-center text-xs">
-                      <span className="text-ink-muted font-medium">{note.craft}</span>
+                      <span className="text-ink-muted font-medium bg-blush/40 px-2.5 py-0.5 rounded-full">{note.craft}</span>
                       <a
                         href={VAKH_FORM_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-wine hover:underline font-semibold"
+                        className="text-wine hover:text-burgundy font-semibold flex items-center gap-1"
                       >
-                        View on Vakh ↗
+                        Verify on Vakh ↗
                       </a>
                     </div>
                   </div>

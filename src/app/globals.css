@@ -123,6 +123,7 @@
   /* Font families */
   .font-serif { font-family: var(--font-serif, 'Cormorant Garamond', Georgia, serif); }
   .font-body { font-family: var(--font-body, 'Inter', sans-serif); }
+  .font-urdu { font-family: 'Noto Nastaliq Urdu', 'Amiri', 'Traditional Arabic', serif; line-height: 1.6; direction: rtl; }
 
   /* Stitch divider */
   .stitch-divider {

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
@@ -87,14 +87,20 @@ export default async function VerifyPage({
             <span className="text-xs font-body text-ink-muted">Verify</span>
           </div>
 
-          {/* ─── Brand header ─── */}
+          {/* ─── Brand header with Urdu ─── */}
           <div className="text-center py-6 border-b border-blush mb-6">
-            <p className="font-serif text-3xl text-burgundy font-semibold mb-0.5">NAQSH</p>
+            <div className="flex items-baseline justify-center gap-2.5 mb-1">
+              <span className="font-serif text-3xl sm:text-4xl text-burgundy font-semibold">NAQSH</span>
+              <span className="font-urdu text-2xl sm:text-3xl text-wine font-medium" dir="rtl">نقش</span>
+            </div>
+            <p className="text-xs font-serif italic text-wine mb-1">
+              "Har Dhaage Ki Kahani" · <span className="font-urdu not-italic text-xs text-ink-muted" dir="rtl">ہر دھاگے کی کہانی</span>
+            </p>
             <p
-              className="text-xs font-body text-ink-muted tracking-widest uppercase"
-              style={{ fontSize: '10px', letterSpacing: '0.16em' }}
+              className="text-xs font-body text-ink-muted tracking-widest uppercase font-mono"
+              style={{ fontSize: '9px', letterSpacing: '0.16em' }}
             >
-              Craft Verification
+              Verified Provenance Docket
             </p>
           </div>
 
