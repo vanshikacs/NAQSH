@@ -22,6 +22,7 @@
     --ink: #1A1210;
     --ink-soft: #3D2B2E;
     --ink-muted: #6B5458;
+    --olive: #4C5B47;
     --surface: #FFFDF9;
     --border: #E8D7D2;
   }
@@ -103,6 +104,7 @@
   .text-rose { color: var(--rose); }
   .text-gold { color: var(--gold); }
   .text-sage { color: var(--sage); }
+  .text-olive { color: var(--olive); }
 
   /* Backgrounds */
   .bg-ivory { background-color: var(--ivory); }
@@ -230,6 +232,16 @@
   .fade-up {
     animation: fade-up 0.5s ease forwards;
   }
+
+  .naqsh-section { position: relative; padding: 7.5rem 0; }
+  .eyebrow { margin-bottom: 1.25rem; color: var(--wine); font-size: .68rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
+  .naqsh-hero { isolation: isolate; }
+  .thread-swoop { background: url("data:image/svg+xml,%3Csvg width='1440' height='900' viewBox='0 0 1440 900' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-20 720 C 300 660 460 340 780 420 S 1180 200 1460 300' fill='none' stroke='%238E3F4A' stroke-opacity='.38' stroke-width='1'/%3E%3C/svg%3E") center/cover no-repeat; pointer-events: none; }
+  .naqsh-card, .naqsh-panel { border: 1px solid rgba(142, 63, 74, .16); background: rgba(255, 253, 249, .72); box-shadow: 0 20px 55px rgba(93, 46, 53, .08); }
+  .naqsh-card { min-height: 250px; padding: 1.6rem; border-radius: 1.25rem 1.25rem .35rem 1.25rem; transition: transform .35s ease, background .35s ease; }
+  .naqsh-card:hover { transform: translateY(-5px); background: var(--mulmul); }
+  .naqsh-panel { padding: 1.5rem; border-radius: 1.5rem; background: var(--mulmul); }
+  .craft-card { display: block; overflow: hidden; border-radius: 12rem 12rem .9rem .9rem; border: 1px solid rgba(142, 63, 74, .14); background: var(--ink); }
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {

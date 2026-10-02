@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -123,15 +123,24 @@ export default function ArtisanOnboardingPage() {
           {/* Header */}
           <div className="text-center mb-6">
             <p
-              className="text-xs font-body font-medium tracking-widest uppercase text-rose mb-3"
+              className="text-xs font-body font-medium tracking-widest uppercase text-wine mb-3"
               style={{ fontSize: '10px', letterSpacing: '0.18em' }}
             >
-              Artisan Onboarding
+              Artisan Onboarding · Powered by Vakh
             </p>
             <h1 className="font-serif text-3xl text-ink mb-2">Register Your Piece</h1>
-            <p className="text-sm font-body text-ink-muted">
-              WhatsApp-inspired cooperative-assisted onboarding
+            <p className="text-sm font-body text-ink-muted mb-4">
+              Cooperative-assisted registration with direct provenance attribution
             </p>
+            <a
+              href="https://vakh.com/form/h8ki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 bg-burgundy/10 hover:bg-burgundy/20 text-burgundy text-xs font-semibold rounded-full border border-burgundy/30 transition-all shadow-xs"
+            >
+              <span>Direct submit via Vakh Form (h8ki)</span>
+              <span className="font-bold">↗</span>
+            </a>
           </div>
 
           {/* Chat window */}
