@@ -62,24 +62,25 @@ export default async function ArtisanPage({
           </div>
 
           {/* Hero */}
-          <div className="relative h-64 sm:h-80 rounded-xl overflow-hidden mb-8">
+          <div className="relative h-64 sm:h-80 rounded-xl overflow-hidden mb-8 bg-stone-900 border border-burgundy/15 shadow-sm">
             <Image
               src={artisan.photo}
               alt={`${artisan.name} — chikankari artisan, ${artisan.location}`}
               fill
+              unoptimized
               className="object-cover object-top"
               priority
               sizes="(max-width: 768px) 100vw, 768px"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <p className="font-serif text-4xl text-white mb-1">{artisan.name}</p>
-              <div className="flex items-center gap-4 text-white/80">
-                <span className="flex items-center gap-1 text-sm font-body">
-                  <MapPin size={13} aria-hidden="true" /> {artisan.location}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+              <p className="font-serif text-4xl text-white mb-1 drop-shadow-sm font-medium">{artisan.name}</p>
+              <div className="flex items-center gap-4 text-white/90">
+                <span className="flex items-center gap-1.5 text-sm font-body drop-shadow-xs">
+                  <MapPin size={13} className="text-gold" aria-hidden="true" /> {artisan.location}
                 </span>
-                <span className="flex items-center gap-1 text-sm font-body">
-                  <Clock size={13} aria-hidden="true" /> {artisan.yearsOfExperience} years of craft
+                <span className="flex items-center gap-1.5 text-sm font-body drop-shadow-xs">
+                  <Clock size={13} className="text-gold" aria-hidden="true" /> {artisan.yearsOfExperience} years of craft
                 </span>
               </div>
             </div>

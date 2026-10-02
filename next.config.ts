@@ -1,13 +1,11 @@
-import type { NextConfig } from 'next';
+﻿import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    // Allow local public images
+    unoptimized: true,
     remotePatterns: [],
   },
-  experimental: {
-    // Opt in to better server component handling
-  },
+  experimental: {},
 };
 
 export default nextConfig;
