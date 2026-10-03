@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
@@ -6,6 +6,11 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ArrowRight, ChevronDown, Eye, Fingerprint, Info, ShieldCheck, Upload, QrCode, Sparkles } from 'lucide-react';
+import dynamic from 'next/dynamic';
+import TiltCard3D from '@/components/TiltCard3D';
+
+const InteractiveCloth3D = dynamic(() => import('@/components/InteractiveCloth3D'), { ssr: false });
+const ScrollStitchProgress = dynamic(() => import('@/components/ScrollStitchProgress'), { ssr: false });
 
 const trustNodes = [
   ['Craft', 'The technique, heritage and regional tradition behind the piece.'],
@@ -70,6 +75,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen overflow-hidden bg-ivory text-ink">
+      <ScrollStitchProgress />
       <Navbar />
 
       <main id="main">
@@ -77,12 +83,18 @@ export default function HomePage() {
         <section
           id="top"
           className="naqsh-hero relative flex min-h-[760px] items-end overflow-hidden pb-20 pt-32 sm:min-h-screen sm:pb-28"
+          style={{
+            background: 'radial-gradient(ellipse 55% 60% at 80% 25%, rgba(243, 217, 210, 0.95), transparent 70%), radial-gradient(ellipse 50% 50% at 10% 90%, rgba(251, 246, 238, 0.9), transparent 70%), linear-gradient(160deg, #E6EFDD, #DCE8D2 140%)'
+          }}
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_24%,rgba(243,217,210,.9),transparent_34%),linear-gradient(135deg,#e6efdd_0%,#dce8d2_52%,#fbf6ee_100%)]" />
-          <div className="thread-swoop absolute inset-0 opacity-60" aria-hidden="true" />
+          {/* 3D Cloth Canvas directly on the background */}
+          <InteractiveCloth3D className="z-[1]" />
 
-          {/* Featured Artifact Visual Card */}
-          <div className="absolute right-[-18%] top-[11%] h-[72vw] max-h-[560px] w-[72vw] max-w-[560px] overflow-hidden rounded-[50%_50%_18%_18%] border border-white/50 opacity-35 shadow-2xl shadow-wine/10 sm:right-0 sm:top-[17%] sm:h-[58vw] sm:w-[42vw] sm:max-h-[680px] sm:max-w-[580px] sm:opacity-100">
+          {/* Thread Swoop Accent */}
+          <div className="thread-swoop absolute inset-0 opacity-40 z-[2] pointer-events-none" aria-hidden="true" />
+
+          {/* Featured Artifact Visual Card - High Contrast, Authentic Colors */}
+          <div className="absolute right-[-10%] top-[11%] h-[72vw] max-h-[560px] w-[72vw] max-w-[560px] overflow-hidden rounded-[50%_50%_18%_18%] border border-wine/25 shadow-2xl shadow-wine/15 sm:right-0 sm:top-[17%] sm:h-[58vw] sm:w-[42vw] sm:max-h-[680px] sm:max-w-[580px] z-[5]">
             <Image
               src="/images/chikankari-ivory-pink.jpg"
               alt="Close-up of authentic chikankari embroidery on ivory muslin fabric"
@@ -91,20 +103,21 @@ export default function HomePage() {
               className="object-cover"
               sizes="(max-width: 640px) 90vw, 55vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-burgundy/40 via-transparent to-white/10" />
-            <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between border-t border-white/60 pt-3 text-xs text-white">
+            {/* Subtle dark vignette ONLY at the bottom behind label */}
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/80 via-black/35 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between border-t border-white/30 pt-3 text-xs text-white">
               <div>
-                <span className="font-serif block font-bold text-sm">Awadh Royal Jali Angrakha</span>
-                <span className="text-[10px] opacity-80">Amina Begum · Chowk, Lucknow</span>
+                <span className="font-serif block font-bold text-sm drop-shadow-md">Awadh Royal Jali Angrakha</span>
+                <span className="text-[10px] text-rose-100/90 drop-shadow">Amina Begum · Chowk, Lucknow</span>
               </div>
-              <span className="font-mono bg-white/20 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold">
+              <span className="font-mono bg-white/20 backdrop-blur-sm px-2.5 py-1 rounded-full text-[10px] font-bold border border-white/20">
                 NQ-2026-001
               </span>
             </div>
           </div>
 
           {/* Hero Content */}
-          <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-8">
+          <div className="relative z-[10] mx-auto w-full max-w-6xl px-5 sm:px-8">
             <div className="max-w-[580px]">
               {/* Urdu Brand Header */}
               <div className="flex items-baseline gap-2 mb-5 bg-white/60 backdrop-blur-sm border border-wine/20 w-fit px-3.5 py-1.5 rounded-full shadow-xs">
@@ -186,14 +199,14 @@ export default function HomePage() {
             </h2>
             <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {trustNodes.map(([title, copy], index) => (
-                <div key={title} className="naqsh-card group">
+                <TiltCard3D key={title} className="naqsh-card group">
                   <div className="flex items-start justify-between">
                     <span className="font-serif text-5xl text-rose/60">0{index + 1}</span>
                     {index === 0 ? <Eye className="text-wine" size={22} /> : index === 1 ? <Fingerprint className="text-wine" size={22} /> : <ShieldCheck className="text-wine" size={22} />}
                   </div>
                   <h3 className="mt-10 font-serif text-3xl italic text-wine">{title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink-muted">{copy}</p>
-                </div>
+                </TiltCard3D>
               ))}
             </div>
           </div>
@@ -367,7 +380,7 @@ export default function HomePage() {
               Record of <em className="text-wine">provenance.</em>
             </h2>
 
-            <article className="certificate-card mt-12 bg-ivory rounded-2xl shadow-xl overflow-hidden border border-wine/20">
+            <TiltCard3D maxTilt={6} className="certificate-card mt-12 bg-ivory rounded-2xl shadow-xl overflow-hidden border border-wine/20">
               <div className="border border-gold p-7 outline outline-1 outline-gold outline-offset-[-8px] sm:p-12">
                 <div className="flex items-center justify-between pb-3 border-b border-gold/40">
                   <div className="flex items-baseline gap-2">
@@ -405,7 +418,7 @@ export default function HomePage() {
                   <span className="text-xs text-ink-muted font-serif italic">Har Dhaage Ki Kahani</span>
                 </div>
               </div>
-            </article>
+            </TiltCard3D>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <button
@@ -477,6 +490,7 @@ function CraftCard({
   copy: string;
 }) {
   return (
+    <TiltCard3D maxTilt={7}>
     <Link href="/artisan" className="craft-card group block">
       <div className="relative aspect-[4/5] overflow-hidden">
         <Image
@@ -497,6 +511,7 @@ function CraftCard({
         </div>
       </div>
     </Link>
+    </TiltCard3D>
   );
 }
 

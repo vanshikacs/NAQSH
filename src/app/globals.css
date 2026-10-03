@@ -244,6 +244,42 @@
   .naqsh-panel { padding: 1.5rem; border-radius: 1.5rem; background: var(--mulmul); }
   .craft-card { display: block; overflow: hidden; border-radius: 12rem 12rem .9rem .9rem; border: 1px solid rgba(142, 63, 74, .14); background: var(--ink); }
 
+
+  /* ── 3D UI/UX Styles from NAQSH — 3D ── */
+  .lace {
+    position: relative;
+  }
+  .lace::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -13px;
+    height: 14px;
+    z-index: 2;
+    background: radial-gradient(circle at 13px 0, var(--lace-color, #FBF6EE) 12px, transparent 13px) 0 0 / 26px 14px repeat-x;
+    pointer-events: none;
+  }
+  .tilt-3d {
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+    will-change: transform;
+    position: relative;
+    transform-style: preserve-3d;
+  }
+  .glare-3d {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.45), transparent 60%);
+  }
+  .tilt-3d:hover .glare-3d {
+    opacity: 1;
+  }
+
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .scan-line, .thread-draw, .naqsh-pulse, .fade-up {

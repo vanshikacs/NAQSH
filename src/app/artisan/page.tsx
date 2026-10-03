@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { ARTISANS } from '@/lib/data/seedData';
 import { MapPin, Clock, Award } from 'lucide-react';
+import TiltCard3D from '@/components/TiltCard3D';
 
 export default function ArtisansPage() {
   return (
@@ -32,8 +33,8 @@ export default function ArtisansPage() {
           {/* Artisan grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {ARTISANS.map((artisan) => (
+              <TiltCard3D key={artisan.id} maxTilt={8} className="rounded-2xl">
               <Link
-                key={artisan.id}
                 href={`/artisan/${artisan.id}`}
                 className="card-naqsh overflow-hidden group block hover:shadow-lg transition-all duration-300 border border-burgundy/10 rounded-2xl bg-white/70"
                 aria-label={`${artisan.name} — artisan profile`}
@@ -93,6 +94,7 @@ export default function ArtisansPage() {
                   </div>
                 </div>
               </Link>
+              </TiltCard3D>
             ))}
           </div>
 
