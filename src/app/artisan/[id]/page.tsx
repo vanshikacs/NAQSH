@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import VerificationBadge from '@/components/VerificationBadge';
+import BuyButton from '@/components/BuyButton';
 import VoicePlayer from '@/components/VoicePlayer';
 import {
   ARTISANS,
@@ -182,11 +183,19 @@ export default async function ArtisanPage({
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                       <VerificationBadge verdict={garment.verificationStatus} size="sm" />
+                      <BuyButton
+                        garmentId={garment.id}
+                        garmentName={garment.garmentType}
+                        craft={garment.craft}
+                        artisanName={artisan.name}
+                        artisanId={artisan.id}
+                        amountInr={garment.artisanEarnings}
+                      />
                       <Link
                         href={`/verify/${garment.id}`}
-                        className="text-xs font-body text-wine hover:text-burgundy font-medium"
+                        className="text-xs font-body text-wine hover:text-burgundy font-medium p-1 rounded hover:bg-blush transition-colors"
                         aria-label={`View certificate for ${garment.garmentType}`}
                       >
                         <ChevronRight size={14} aria-hidden="true" />
